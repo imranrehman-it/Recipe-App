@@ -30,11 +30,11 @@ function Veggie() {
 
   return (
     <div>
-      <h1>Veggie</h1>
+      <h1>Vegetarian Picks</h1>
       <Wrapper>
         <Splide
           options={{
-            perPage: 4,
+            perPage: 3,
             arrows: false,
             pagination: false,
             drag: "free",
@@ -76,22 +76,19 @@ const Card = styled.div`
   }
 
   p {
+    position: absolute;
     z-index: 10;
-    padding: 1rem;
     left: 50%;
     bottom: 0%;
     transform: translate(-50%, 0%);
     color: white;
-
-    position: absolute;
-    width: 344px;
-    height: 72px;
-
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 36px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
