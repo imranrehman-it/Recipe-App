@@ -32,7 +32,7 @@ function Popular() {
 
   return (
     <div>
-      <h3>Top Picks</h3>
+      <h1>Top Picks</h1>
       <Wrapper>
         <Splide
           options={{
@@ -61,7 +61,8 @@ function Popular() {
 }
 
 const Wrapper = styled.div`
-  margin: 4rem 0rem;
+  margin: 1rem 0rem;
+  border-radius: 10px;
 `;
 
 const Card = styled.div`

@@ -30,7 +30,7 @@ function Veggie() {
 
   return (
     <div>
-      <h3>Veggie</h3>
+      <h1>Veggie</h1>
       <Wrapper>
         <Splide
           options={{
@@ -58,7 +58,7 @@ function Veggie() {
   );
 }
 const Wrapper = styled.div`
-  margin: 4rem 0rem;
+  margin: 1rem 0rem;
 `;
 
 const Card = styled.div`
@@ -77,11 +77,11 @@ const Card = styled.div`
 
   p {
     z-index: 10;
+    padding: 1rem;
     left: 50%;
     bottom: 0%;
     transform: translate(-50%, 0%);
     color: white;
-    height: 40%;
 
     position: absolute;
     width: 344px;
