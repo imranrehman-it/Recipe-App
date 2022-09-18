@@ -47,7 +47,7 @@ function Popular() {
           {popular.map((recipe) => {
             return (
               <SplideSlide>
-                <NavLink to={`/home/${recipe.id}`}>
+                <NavLink to={"/home/" + recipe.id}>
                   <Card key={recipe.id}>
                     <p>{recipe.title}</p>
                     <img src={recipe.image}></img>

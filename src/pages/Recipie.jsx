@@ -7,6 +7,7 @@ import Ingredients from "../components/Ingredients";
 function Recipie() {
   let params = useParams();
   const [recipe, setRecipe] = useState({});
+  const [ingredient, setIngredients] = useState({});
 
   useEffect(() => {
     getRecepie(params.recipe);
@@ -20,6 +21,7 @@ function Recipie() {
     const recdata = await data.json();
     console.log(recipe);
     setRecipe(recdata);
+    setIngredients(recdata.extendedIngredients);
   };
 
   return (
@@ -29,7 +31,8 @@ function Recipie() {
       <RecipeContent>
         <h3 dangerouslySetInnerHTML={{ __html: recipe.summary }} />
         <h3 dangerouslySetInnerHTML={{ __html: recipe.instructions }} />
-        <Ingredients data={recipe.extendedIngredients} />
+        <button>This button</button>
+        <Ingredients />
       </RecipeContent>
     </RecipeDisplay>
   );
