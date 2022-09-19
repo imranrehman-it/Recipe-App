@@ -9,6 +9,7 @@ function Recipie() {
   let params = useParams();
   const [recipe, setRecipe] = useState({});
   const [ingredient, setIngredients] = useState({});
+  const [tab, setTab] = useState(1);
 
   useEffect(() => {
     getRecepie(params.recipe);
@@ -40,13 +41,24 @@ function Recipie() {
         <img src={recipe.image}></img>
         <RecipeContent>
           <Heading>
-            <h2>Ingredients</h2>
-            <h2>Directions</h2>
-            <h2>Description</h2>
+            <StyleButton onClick={() => setTab(1)}>
+              <h2>Ingredients</h2>
+            </StyleButton>
+            <StyleButton onClick={() => setTab(2)}>
+              <h2>Instructions</h2>
+            </StyleButton>
+            <StyleButton onClick={() => setTab(3)}>
+              <h2>Description</h2>
+            </StyleButton>
           </Heading>
-          <Ingredients />
-          <h3 dangerouslySetInnerHTML={{ __html: recipe.summary }} />
-          <h2 dangerouslySetInnerHTML={{ __html: recipe.instructions }} />
+
+          {tab === 1 && <Ingredients />}
+          {tab === 2 && (
+            <h2 dangerouslySetInnerHTML={{ __html: recipe.instructions }} />
+          )}
+          {tab === 3 && (
+            <h2 dangerouslySetInnerHTML={{ __html: recipe.summary }} />
+          )}
         </RecipeContent>
       </RecipeDisplay>
     </>
@@ -95,6 +107,29 @@ const Heading = styled.div`
     background: linear-gradient(35deg, #494949, #313131);
     border-radius: 10px;
     padding: 1rem;
+  }
+`;
+
+const StyleButton = styled.div`
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+
+  &:hover {
+    h2 {
+      background: linear-gradient(to right, #f27121, #e94057);
+    }
+  }
+
+  &:active {
+    h2 {
+      background: linear-gradient(to right, #f27121, #e94057);
+    }
   }
 `;
 
