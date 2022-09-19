@@ -19,8 +19,8 @@ function Recipie() {
       `https://api.spoonacular.com/recipes/${id}/information?apiKey=${process.env.REACT_APP_API_KEY}`
     );
     const recdata = await data.json();
-    console.log(recipe);
     setRecipe(recdata);
+    console.log(recdata);
     setIngredients(recdata.extendedIngredients);
   };
 
@@ -28,10 +28,11 @@ function Recipie() {
     <RecipeDisplay>
       <h1>{recipe.title}</h1>
       <img src={recipe.image}></img>
+      <h2>{recipe.readyInMinutes + " Minutes"}</h2>
+      <h3>{recipe.servings + " serving"}</h3>
       <RecipeContent>
         <h3 dangerouslySetInnerHTML={{ __html: recipe.summary }} />
         <h3 dangerouslySetInnerHTML={{ __html: recipe.instructions }} />
-        <button>This button</button>
         <Ingredients />
       </RecipeContent>
     </RecipeDisplay>
