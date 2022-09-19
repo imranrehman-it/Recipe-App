@@ -23,7 +23,6 @@ function Ingredients() {
 
   return (
     <>
-      <h1>What You Will Need</h1>
       <Grid>
         {ingredient.map((item) => {
           return (
@@ -68,8 +67,9 @@ const Card = styled.div`
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
+  padding: 1rem;
 `;
 
 export default Ingredients;

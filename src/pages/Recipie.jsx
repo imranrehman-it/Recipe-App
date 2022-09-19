@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 import Ingredients from "../components/Ingredients";
+import { FaPizzaSlice, FaHamburger, FaHome, FaClock } from "react-icons/fa";
 
 function Recipie() {
   let params = useParams();
@@ -25,17 +26,30 @@ function Recipie() {
   };
 
   return (
-    <RecipeDisplay>
-      <h1>{recipe.title}</h1>
-      <img src={recipe.image}></img>
-      <h2>{recipe.readyInMinutes + " Minutes"}</h2>
-      <h3>{recipe.servings + " serving"}</h3>
-      <RecipeContent>
-        <h3 dangerouslySetInnerHTML={{ __html: recipe.summary }} />
-        <h3 dangerouslySetInnerHTML={{ __html: recipe.instructions }} />
-        <Ingredients />
-      </RecipeContent>
-    </RecipeDisplay>
+    <>
+      <RecipeDisplay>
+        <Heading>
+          <h1>{recipe.title}</h1>
+        </Heading>
+        <Heading>
+          <FaClock color="white" size="1rem"></FaClock>
+          <h2>{recipe.readyInMinutes + " Minutes"}</h2>
+          <FaHamburger color="white" size="1rem"></FaHamburger>
+          <h2>{recipe.servings + " serving"}</h2>
+        </Heading>
+        <img src={recipe.image}></img>
+        <RecipeContent>
+          <Heading>
+            <h2>Ingredients</h2>
+            <h2>Directions</h2>
+            <h2>Description</h2>
+          </Heading>
+          <Ingredients />
+          <h3 dangerouslySetInnerHTML={{ __html: recipe.summary }} />
+          <h2 dangerouslySetInnerHTML={{ __html: recipe.instructions }} />
+        </RecipeContent>
+      </RecipeDisplay>
+    </>
   );
 }
 
@@ -54,13 +68,34 @@ const RecipeDisplay = styled.div`
   h3 {
     padding: 1rem;
   }
+  h1 {
+    font-weight: 1000;
+    color: white;
+    padding: 1rem;
+  }
 `;
 
 const RecipeContent = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  padding: 3rem;
+  padding: 1rem;
+`;
+
+const Heading = styled.div`
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+
+  h2,
+  h1 {
+    margin: 1rem;
+    color: white;
+    background: linear-gradient(35deg, #494949, #313131);
+    border-radius: 10px;
+    padding: 1rem;
+  }
 `;
 
 export default Recipie;
