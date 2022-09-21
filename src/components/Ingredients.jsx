@@ -57,6 +57,7 @@ const Card = styled.div`
   border-radius: 10px;
   border: rgb(123, 123, 123) solid 2px;
   width: 230px;
+  width: 100px
   height: 230px;
 
   h4 {
