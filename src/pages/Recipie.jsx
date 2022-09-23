@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
 import Ingredients from "../components/Ingredients";
 import {
   FaClock,
