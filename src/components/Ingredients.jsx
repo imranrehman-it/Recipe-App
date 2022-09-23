@@ -54,7 +54,7 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 10px;
+  border-radius: 12px;
   border: rgb(123, 123, 123) solid 2px;
   width: 230px;
   width: 100px
