@@ -23,18 +23,10 @@ function Ingredients() {
 
   return (
     <>
-      <Grid>
+      <List>
         {ingredient.map((item) => {
           return (
-            <Card>
-              <img
-                src={
-                  "https://spoonacular.com/cdn/ingredients_100x100/" +
-                  item.image
-                }
-                width="100"
-                height="100"
-              ></img>
+            <li>
               <h4>
                 {item.amount.us.value +
                   " " +
@@ -42,35 +34,19 @@ function Ingredients() {
                   " " +
                   item.name}
               </h4>
-            </Card>
+            </li>
           );
         })}
-      </Grid>
+      </List>
     </>
   );
 }
 
-const Card = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 12px;
-  border: rgb(123, 123, 123) solid 2px;
-  width: 230px;
-  width: 100px
-  height: 230px;
-
-  h4 {
-    padding: 1rem;
-    text-align: center;
-  }
+const List = styled.ul`
+  margin-left: 1rem;
+  margin-top: 1rem;
+  width: fill;
+  height: 70%;
+  overflow: auto;
 `;
-
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  padding: 1rem;
-`;
-
 export default Ingredients;
