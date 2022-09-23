@@ -3,6 +3,12 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 
+function layoutSelector(val) {
+  if (val == 1) {
+    return;
+  }
+}
+
 function Searched() {
   let params = useParams();
   const [search, setSearch] = useState([]);

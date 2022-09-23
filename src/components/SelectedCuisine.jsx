@@ -4,44 +4,44 @@ import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 
-function Dessert() {
-  const [dessert, setDessert] = useState([]);
+function SelectedCuisine({ input, perPage }) {
+  const [type, setType] = useState([]);
 
   useEffect(() => {
-    getDessert();
+    getType();
   }, []);
 
   //async waits for the API to get the data before rendering
-  const getDessert = async () => {
-    const check = localStorage.getItem("dessert");
+  const getType = async () => {
+    const check = localStorage.getItem(input);
     if (check) {
-      setDessert(JSON.parse(check));
+      setType(JSON.parse(check));
     } else {
       const api = await fetch(
-        `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9&tags=dessert`
+        `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9&tags=${input}`
       );
       const data = await api.json();
 
-      localStorage.setItem("dessert", JSON.stringify(data.recipes));
-      setDessert(data.recipes);
+      localStorage.setItem(input, JSON.stringify(data.recipes));
+      setType(data.recipes);
       console.log(data);
     }
   };
 
   return (
     <div>
-      <h1>Dessert Picks</h1>
+      <h1>{input.charAt(0).toUpperCase() + input.slice(1) + " Picks"}</h1>
       <Wrapper>
         <Splide
           options={{
-            perPage: 3,
+            perPage: perPage,
             arrows: false,
             pagination: false,
             drag: "free",
             gap: "5rem",
           }}
         >
-          {dessert.map((recipe) => {
+          {type.map((recipe) => {
             return (
               <SplideSlide>
                 <Card key={recipe}>
@@ -100,4 +100,4 @@ const Gradient = styled.div`
   backgroud: linear-gradient(rgba(0, 0, 0, 0), rbga(0, 0, 0, 0.5));
 `;
 
-export default Dessert;
+export default SelectedCuisine;

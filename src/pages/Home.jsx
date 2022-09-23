@@ -1,14 +1,14 @@
-import Veggie from "../components/Veggie";
 import Popular from "../components/Popular";
-import Dessert from "../components/Dessert";
+import SelectedCuisine from "../components/SelectedCuisine";
 import React from "react";
 
 function Home() {
   return (
     <div>
-      <Veggie />
+      <SelectedCuisine input="vegetarian" perPage={3} />
       <Popular />
-      <Dessert />
+      <SelectedCuisine input="dessert" perPage={3} />
+      <SelectedCuisine input="italian" perPage={4} />
     </div>
   );
 }
