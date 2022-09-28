@@ -131,6 +131,7 @@ const IngDisplay = styled.div`
   width: 100%;
   height: 70%;
   padding: 1rem;
+  font-weight: 1000;
 
   background: linear-gradient(35deg, #494949, #313131);
   border-radius: 10px;
@@ -153,10 +154,11 @@ const InstructionTab = styled.div`
   background: linear-gradient(35deg, #494949, #313131);
   border-radius: 10px;
   width: 100%;
-  height: 190px;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  padding-left: 2rem;
   margin-top: 1rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   color: white;
