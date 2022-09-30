@@ -131,7 +131,6 @@ const IngDisplay = styled.div`
   width: 100%;
   height: 70%;
   padding: 1rem;
-  font-weight: 1000;
 
   background: linear-gradient(35deg, #494949, #313131);
   border-radius: 10px;

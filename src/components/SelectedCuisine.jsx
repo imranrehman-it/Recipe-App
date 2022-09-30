@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
-
+import { NavLink } from "react-router-dom";
 function SelectedCuisine({ input, perPage }) {
   const [type, setType] = useState([]);
 
@@ -44,11 +44,13 @@ function SelectedCuisine({ input, perPage }) {
           {type.map((recipe) => {
             return (
               <SplideSlide>
-                <Card key={recipe}>
-                  <p>{recipe.title}</p>
-                  <img src={recipe.image}></img>
-                  <Gradient />
-                </Card>
+                <NavLink to={"/home/" + recipe.id}>
+                  <Card key={recipe.id}>
+                    <p>{recipe.title}</p>
+                    <img src={recipe.image}></img>
+                    <Gradient />
+                  </Card>
+                </NavLink>
               </SplideSlide>
             );
           })}
